@@ -16,17 +16,18 @@ let atletas = [
         notas: [10, 10, 10, 9, 9.5]
     }
 ];
-
-class Atletas {
-    constructor(atletas) {
-        this.atletas = atletas;
-    }
-
-    nomes() {
-
-    }
+function calcularMedia(atletas) {
+    atletas.forEach(atleta => {
+        let notas = atleta.notas.sort((a, b) => a - b);
+        let notasComputadas = notas.slice(1, notas.length - 1);
+        let soma = 0;
+        notasComputadas.forEach(nota => { soma += nota; });
+        let media = soma / notasComputadas.length;
+        console.log(`Atleta: ${atleta.nome}`);
+        console.log(`Notas Obtidas: ${atleta.notas.join(", ")}`);
+        console.log(`Média Válida: ${media}`); console.log("");
+    });
 }
 
-function notas(nota) {
+calcularMedia(atletas);
 
-}
